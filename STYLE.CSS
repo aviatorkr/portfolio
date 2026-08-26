@@ -1,0 +1,396 @@
+/* =========================================================
+   Karan Kumar — Portfolio
+   Theme: "Nexora-inspired" — bold violet, chunky type, soft cards
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500&family=Baloo+2:wght@700&display=swap');
+
+:root {
+  --bg: #faf9fc;
+  --violet: #8b5cf6;
+  --violet-deep: #6d28d9;
+  --violet-soft: #efe9fd;
+  --ink: #14121c;
+  --muted: #6b6b76;
+  --white: #ffffff;
+  --radius: 20px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  max-width: min(1500px, 94vw);
+  margin: 0 auto;
+  padding: 56px 24px 100px;
+  position: relative;
+
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(rgba(139, 92, 246, 0.16) 1px, transparent 1px),
+    radial-gradient(circle at 12% 6%, rgba(139, 92, 246, 0.22), transparent 38%),
+    radial-gradient(circle at 88% 12%, rgba(255, 170, 214, 0.22), transparent 36%),
+    radial-gradient(circle at 8% 62%, rgba(139, 92, 246, 0.16), transparent 38%),
+    radial-gradient(circle at 92% 88%, rgba(109, 40, 217, 0.20), transparent 42%),
+    radial-gradient(circle at 50% 45%, rgba(255, 210, 235, 0.14), transparent 45%);
+  background-size:
+    26px 26px,
+    auto, auto, auto, auto, auto;
+  background-position:
+    0 0,
+    0 0, 0 0, 0 0, 0 0, 0 0;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-attachment: fixed;
+}
+
+/* ---------- Typography ---------- */
+
+h1, h2, h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 0.6em;
+}
+h2::after {
+  content: "";
+  display: block;
+  width: 46px;
+  height: 6px;
+  background: var(--violet);
+  border-radius: 999px;
+  margin-top: 10px;
+}
+
+h3 { font-size: 1.15rem; color: var(--violet-deep); margin-bottom: 0.3em; }
+
+h1 {
+  font-size: 2.6rem;
+  text-align: center;
+}
+
+p { color: var(--muted); font-size: 0.98rem; }
+
+/* ---------- Nav ---------- */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100vw;
+  margin-top: -56px;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-bottom: 20px;
+  padding: 16px calc((100vw - min(1500px, 94vw)) / 2 + 24px);
+  background: rgba(250, 249, 252, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  color: var(--ink) !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+.brand:hover { transform: none !important; color: var(--violet-deep) !important; }
+
+.brand-mark {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--violet), var(--violet-deep));
+  color: var(--white);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 14px -6px rgba(109, 40, 217, 0.6);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+nav a {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--ink);
+  text-decoration: none;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+nav a:last-child {
+  background: var(--ink);
+  color: var(--white);
+}
+nav a:hover {
+  background: var(--violet-soft);
+  color: var(--violet-deep);
+  transform: translateY(-2px) scale(1.05);
+}
+nav a:last-child:hover {
+  background: var(--violet);
+  color: var(--white);
+}
+
+/* land below the sticky nav, not flush under it */
+section { scroll-margin-top: 90px; }
+
+/* ---------- Layout ---------- */
+
+section { padding: 44px 0; }
+
+hr {
+  border: none;
+  border-top: 2px dashed #e3ddf5;
+  margin: 0;
+}
+
+/* ---------- About section — decorative backdrop ---------- */
+
+section:first-of-type {
+  position: relative;
+  overflow: visible;
+  isolation: isolate;
+}
+
+/* dashed orbit ring behind the photo */
+section:first-of-type::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 230px;
+  height: 300px;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-8deg);
+  border: 1.5px dashed rgba(139, 92, 246, 0.5);
+  border-radius: 50%;
+}
+
+/* soft glow behind the photo */
+section:first-of-type::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 260px;
+  height: 260px;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, #c9b8fb, transparent 70%);
+  filter: blur(55px);
+  opacity: 0.55;
+}
+
+/* sparkle accent next to the heading */
+h2::before {
+  content: "\2726";
+  display: inline-block;
+  color: var(--violet);
+  font-size: 0.75em;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* ---------- Photo (about) ---------- */
+
+img {
+  display: block;
+  margin: 18px auto;
+  border-radius: 50%;
+  border: 5px solid var(--white);
+  box-shadow: 0 16px 40px -12px rgba(139, 92, 246, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+img:hover {
+  transform: scale(1.05) rotate(-2deg);
+  box-shadow: 0 20px 48px -10px rgba(139, 92, 246, 0.6);
+}
+
+/* ---------- Skills — pill tags ---------- */
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 14px 0 0;
+}
+li {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--violet-deep);
+  background: var(--violet-soft);
+  border: 1px solid #ded2fb;
+  border-radius: 999px;
+  padding: 8px 16px;
+  transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+  cursor: pointer;
+}
+li:hover {
+  background: var(--violet);
+  color: var(--white);
+  transform: translateY(-3px);
+}
+
+/* ---------- Services — soft cards ---------- */
+
+section div {
+  background: var(--white);
+  border: 1px solid #ece7fa;
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 20px -14px rgba(20, 18, 28, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+section div:hover {
+  transform: translateY(-6px);
+  background: var(--violet-soft);
+  box-shadow: 0 20px 36px -18px rgba(139, 92, 246, 0.5);
+}
+section div p { margin: 0; }
+
+/* ---------- Achievements ---------- */
+
+section:has(h1) {
+  text-align: center;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* ---------- Contact — pill buttons ---------- */
+
+section:last-of-type {
+  text-align: center;
+}
+section:last-of-type a {
+  display: inline-block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--white);
+  background: var(--ink);
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  margin: 6px 8px;
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+section:last-of-type a:hover {
+  background: var(--violet);
+  transform: translateY(-3px) scale(1.04);
+}
+section:last-of-type p {
+  font-size: 0.9rem;
+  margin-top: 14px;
+}
+
+/* ---------- Responsive ---------- */
+
+/* Small phones — tighten what the base (mobile-first) styles already set */
+@media (max-width: 480px) {
+  body { padding: 36px 16px 72px; }
+  header { margin-top: -36px; }
+  nav { gap: 2px; }
+  nav a { padding: 6px 10px; font-size: 0.78rem; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.6rem; }
+  section:first-of-type::before { width: 190px; height: 250px; }
+  section:first-of-type::after { width: 210px; height: 210px; }
+}
+
+/* Tablets and up — give the layout room to breathe */
+@media (min-width: 700px) {
+  body {
+    padding: 72px 40px 120px;
+  }
+
+  header { margin-top: -72px; }
+
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.3rem; }
+
+  /* Photo floats beside the text instead of stacking above it */
+  section:first-of-type img {
+    float: right;
+    margin: 4px 0 20px 40px;
+  }
+  section:first-of-type h3,
+  section:first-of-type ul { clear: none; }
+
+  /* Reposition the orbit ring + glow to sit behind the floated photo */
+  section:first-of-type::before {
+    left: auto;
+    right: 0;
+    transform: rotate(-8deg);
+  }
+  section:first-of-type::after {
+    left: auto;
+    right: 0;
+    transform: none;
+  }
+
+  /* Service cards become a real grid instead of a stacked list */
+  section:nth-of-type(2) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    align-items: start;
+  }
+  section:nth-of-type(2) h2 { grid-column: 1 / -1; }
+  section:nth-of-type(2) div { margin-bottom: 0; }
+}
+
+/* Desktop — three-column services, wider canvas */
+@media (min-width: 1024px) {
+  section:nth-of-type(2) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  section:first-of-type img { margin-left: 56px; }
+}
+
+/* Ultra-wide — four-column services */
+@media (min-width: 1500px) {
+  section:nth-of-type(2) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
